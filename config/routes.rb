@@ -1,25 +1,20 @@
 Rails.application.routes.draw do
-  get 'categories/new'
-  get 'expenses/new'
-  get 'categories/index'
-  get 'categories/show'
-  get 'categories/create'
-  get 'categories/edit'
-  get 'categories/destroy'
-  get 'expenses/index'
-  get 'expenses/show'
-  get 'expenses/create'
-  get 'expenses/edit'
-  get 'expenses/destroy'
-  
-  resources :users do
-    resources :categories do
-      resources :expenses
-    end
-  end
-
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+    
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+    authenticated :user do
+      root 'categories#index', as: :authenticated_root
+    end
 
-  root 'home#index'
+    unauthenticated do
+      root 'home#index', as: :unauthenticated_root
+    end
+  end  
+
+  resources :categories, only: [:index, :show, :new, :create, :edit, :destroy]
+  resources :expenses, only: [:index, :show, :new, :create, :edit, :destroy]
+   
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+ 
 end
