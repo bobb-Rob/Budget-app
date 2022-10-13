@@ -12,9 +12,10 @@ Rails.application.routes.draw do
     end
   end  
 
-  resources :categories, only: [:index, :show, :new, :create, :edit, :destroy]
-  resources :expenses, only: [:index, :show, :new, :create, :edit, :destroy]
-   
+  resources :users do
+    resources :categories, only: [:index, :show, :new, :create, :edit, :destroy]
+    resources :expenses, only: [:index, :show, :new, :create, :edit, :destroy]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
  
 end
