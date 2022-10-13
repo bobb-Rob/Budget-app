@@ -15,7 +15,11 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>    
-    <main class="container-fluid border p-0" >      
+    <main class="container-fluid p-0 position-relative" >
+      <div class="fixed-alert" >
+        <p class="notice alert-succ p-0 mb-0" ><%= notice %></p>
+        <p class="alert alert-dange p-0 mb-0"> <%= alert %></p>
+      </div>
       <%= yield %>
     </main>    
   </body>

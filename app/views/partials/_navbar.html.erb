@@ -1,11 +1,19 @@
 
-<header class="my_nav d-flex justify-content-between align-items-center p-2 mb-4">
-  <nav>   
-    <%= link_to do %>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-      </svg>
-    <% end %>
+<header class="my_nav d-flex justify-content-between align-items-center p-2 mb-5">
+  <nav>
+    <div class="dropdown">
+      <%= link_to class: "dropdown-toggle", data: { 'bs-toggle': "dropdown" }, aria: { 'expanded': "false"} do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      <% end %>
+
+      <ul class="dropdown-menu">
+        <li><%= link_to "Home", authenticated_root_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Categories", user_categories_path, class: "dropdown-item" %></li>
+        <li><%= link_to "log out", destroy_user_session_path , class: "dropdown-item" %></li>
+      </ul>
+    </div>
   </nav>
   <span class="fs-5 text-white" >
     <%= name %>

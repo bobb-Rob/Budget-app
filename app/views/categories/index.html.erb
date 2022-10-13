@@ -1,9 +1,9 @@
 <%= render partial: 'partials/navbar', locals: { name: "CATEGORIES" } %>
 
 <div class="container">
-  <div class="">
-    <h3>Overall Budget:</h3>
-    <h3> <%= number_to_currency(@expenses.sum(&:amount)) %> </h3>
+  <div class="d-flex text-center mb-3">
+    <h3>Overall Expense:</h3>
+    <h3 class="ms-3"> <%= number_to_currency(@expenses.sum(&:amount)) %> </h3>
   </div>
 
   <% if @categories.empty? %>
@@ -13,7 +13,7 @@
       <%= link_to user_category_path(current_user, category.id), class: "hover text-decoration-none neutral-color-1" do %>
         <div class="card shadow mb-4 px-3 pt-3">
           <div class="d-flex" >
-            <div>
+            <div class="d-flex" >
               <%= image_tag "#{category.icon}", class: "w-25 me-3" %>
               <h2 class="fs-4">
                 <%= category.name %>              

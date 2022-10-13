@@ -10,22 +10,22 @@
   <br>    
 </header>
 
-<%= form_with model: @expense, url: user_expenses_path, data: { turbo: false } do |f| %> 
+<%= form_with model: @expense, url: user_expenses_path, data: { turbo: false }, class: 'd-flex flex-column justify-content-center align-items-center' do |f| %> 
 
-  <div class="field form-group " >
+  <div class="field form-group w-75 w-md-50" >
     <%= f.text_field :name, class:"form-control", autofocus: true, placeholder: "Expense name", value: '' %><br/>
   </div>
 
-  <div class="field form-group " >
+  <div class="field form-group w-75 w-md-50" >
     <%= f.number_field :amount, class:"form-control", placeholder: "Expense amount" %><br/>
   </div>
 
-  <div>
+  <div class="w-75">
     <%= f.label "Please select a category" %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" } %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" }, class: "form-select form-select-sm w-75", aria: { label: ".form-select-sm example"} %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Save" %>
+  <div class="actions p-3 mt-4 new-category-btn">
+    <%= f.submit "Save", class: 'btn new-category-btn' %>
   </div>
 <% end %>
