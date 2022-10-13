@@ -24,6 +24,10 @@
   color:  var(--accent-color-2);
 }
 
+.primary-color-dark {
+  color: var(--primary-color-dark);
+}
+
 .navibar {
   background-color: var(--primary-color);
 }
