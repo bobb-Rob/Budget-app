@@ -7,14 +7,14 @@
   </div>
 
   <% if @categories.empty? %>
-    <p>Category lists is empty, please add a new category to begin.</p>
+    <p>Category lists is empty, please add a new category</p>
   <% else %>
-    <% @categories.each do |category|  %>
+    <% @categories.each do |category| %>
       <%= link_to user_category_path(current_user, category.id), class: "hover text-decoration-none neutral-color-1" do %>
         <div class="card shadow mb-4 px-3 pt-3">
           <div class="d-flex" >
             <div class="d-flex" >
-              <%= image_tag "#{category.icon}", class: "w-25 me-3" %>
+              <%= image_tag category.icon, class: "w-25 me-3" %>
               <h2 class="fs-4">
                 <%= category.name %>              
               </h2>
