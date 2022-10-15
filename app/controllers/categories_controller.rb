@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def index
     @user = current_user
     @categories = @user.categories.order('created_at DESC')
-    @expenses = Expense.all
+    @expenses = @user.expenses
   end
 
   def show     
