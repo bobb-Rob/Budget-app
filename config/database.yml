@@ -86,4 +86,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= Rails.application.credentials.secret_db_key.finanzz %>
+  url: postgres://gojadvwqvskleg:ba3c2fb39d1e0847f3be3be446a0742ce78ea5aafab890dce97d2b7d70418477@ec2-52-4-87-74.compute-1.amazonaws.com:5432/d88dbt2b6ibcm
