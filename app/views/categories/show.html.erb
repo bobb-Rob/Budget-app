@@ -18,13 +18,13 @@
   <% else %>
     <div class="d-flex justify-content-between align-items-center" >
       <h1><%= @category.name.capitalize%></h1>
-      <span class="fs-3" >Total: <%= number_to_currency(@expenses.sum(&:amount)) %> </span>
+      <span class="fs-3" >Total: <%= number_to_currency(@expenses.sum(&:amount), unit:"₦") %> </span>
     </div>    
     <% @expenses.each do |expense| %>
       <div class="card shadow mb-4 px-3 py-3">
         <div class="d-flex" style="align-items:center;justify-content:space-between"> 
           <h5 class=""> <%= expense.name.capitalize %> </h5>
-          <span> <%= number_to_currency(expense.amount) %> </span>
+          <span> <%= number_to_currency(expense.amount, unit:"₦") %> </span>
         </div>
         <p class="card-text"><%= @category.created_at.strftime('%a %d %b %Y')%> </p>
       </div>

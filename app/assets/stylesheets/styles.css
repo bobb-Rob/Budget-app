@@ -64,7 +64,8 @@
 }
 
 .alert-succ {
-  color: var(--accent-color);
+  color: var(--white);
+  background-color: var(--accent-color);
 }
 
 .alert-dange {

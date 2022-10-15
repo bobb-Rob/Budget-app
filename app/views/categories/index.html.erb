@@ -3,7 +3,7 @@
 <div class="container">
   <div class="d-flex text-center mb-3">
     <h3>Overall Expense:</h3>
-    <h3 class="ms-3"> <%= number_to_currency(@expenses.sum(&:amount)) %> </h3>
+    <h3 class="ms-3"> <%= number_to_currency(@expenses.sum(&:amount), unit:"₦") %> </h3>
   </div>
 
   <% if @categories.empty? %>
@@ -12,15 +12,15 @@
     <% @categories.each do |category| %>
       <%= link_to user_category_path(current_user, category.id), class: "hover text-decoration-none neutral-color-1" do %>
         <div class="card shadow mb-4 px-3 pt-3">
-          <div class="d-flex" >
+          <div class="d-flex justify-content-between" >
             <div class="d-flex" >
-              <%= image_tag category.icon, class: "w-25 me-3" %>
+              <%= image_tag category.icon, class: "w-25 me-3", alt: "Category Icon" %>
               <h2 class="fs-4">
                 <%= category.name %>              
               </h2>
             </div>
             <span>
-              <%= number_to_currency(category.expenses.sum(&:amount)) %> 
+              <%= number_to_currency(category.expenses.sum(&:amount), unit:"₦") %> 
             </span>
           </div>
           <span class="neutral-color-2 fs-6" > <%= category.created_at.strftime("%B, %e at %H:%M") %> </span>         
@@ -33,7 +33,3 @@
 <div class="p-3 new-category-btn" >
   <%= link_to "Add Category", new_user_category_path(current_user), class: "btn new-category-btn" %>
 </div>
-
-
-
-<%# <%= link_to "Log out", destroy_user_session_path , class: "btn btn-primary" %>
