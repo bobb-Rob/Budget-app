@@ -1,15 +1,15 @@
 require 'date'
 
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :destroy]
-  
+  before_action :set_category, only: %i[show destroy]
+
   def index
     @user = current_user
     @categories = @user.categories.order('created_at DESC')
     @expenses = @user.expenses
   end
 
-  def show     
+  def show
     @expenses = @category.expenses.order('created_at DESC')
   end
 
@@ -19,19 +19,18 @@ class CategoriesController < ApplicationController
 
   def create
     puts category_params
-    @category = Category.new(category_params)   
+    @category = Category.new(category_params)
     @category.user_id = current_user.id
     if @category.save
       redirect_to user_categories_path
-      flash[:notice] = 'Category was successfully created.'     
+      flash[:notice] = 'Category was successfully created.'
     else
       flash[:alert] = 'Category was not created.'
       render :new
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 

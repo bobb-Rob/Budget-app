@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   def new
-    @expense = Expense.new   
+    @expense = Expense.new
   end
 
   def create
@@ -16,10 +16,9 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
-  private 
+  private
 
   def expense_params
     params.require(:expense).permit(:name, :amount)
