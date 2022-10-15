@@ -11,8 +11,10 @@
 - Postgresql
 - Bootstap
 
+## Video Describing the project features
+[link to video](https://www.loom.com/share/b3b34275528d44f8a98f9421071b6b88)
+
 ## Live Demo
-[Video Describing the project](https://www.loom.com/share/8f6ad817b970415598009d2ac5cf31fa)
 [Live project link](https://finanzz.herokuapp.com/)
 
 
