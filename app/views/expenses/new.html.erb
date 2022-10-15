@@ -22,7 +22,7 @@
 
   <div class="w-75">
     <%= f.label "Please select a category" %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" }, class: "form-select form-select-sm w-75", aria: { label: ".form-select-sm example"} %>
+    <%= f.collection_select :category_id, current_user.categories, :id, :name, { include_blank: "None" }, class: "form-select form-select-sm w-75", aria: { label: ".form-select-sm example"} %>
   </div>
 
   <div class="actions p-3 mt-4 new-category-btn">
