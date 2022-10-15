@@ -86,4 +86,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= Rails.application.credentials.DB_URL.finanzz %>
+  url: <%= Rails.application.credentials.secret_db_key.finanzz %>
