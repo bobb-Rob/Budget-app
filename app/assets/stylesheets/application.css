@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Merriweather:wght@400;700&display=swap');
+@import "styles";
+
+.alkalami {
+  font-family: var(--alkalami);
+}
